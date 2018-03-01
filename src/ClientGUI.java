@@ -1,100 +1,68 @@
-import Model.NetCode.ListenConnection;
+import Model.Block;
+import Model.NetCode.ListenConnectionThread;
+import Model.NetCode.Node;
+import Model.NetCode.PeerConnectionThread;
+import Model.Transaction;
 
-import java.text.NumberFormat;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class ClientGUI {
 
+    final static String WRITE_HELP = ", write /help to see available commands and arguments.";
+
     public static void main(String[] argsv){
-        //ListenConnection listener = new ListenConnection(argsv[0]);
-        System.out.println("=============BigBoiBlockchain=============");
-        System.out.println("Welcome to BigBoiBlockchain!");
-        System.out.println("Write /help to see what commands are available.");
-        System.out.println("==========================================");
+        new Thread(new ListenConnectionThread(argsv[0]));
+        System.out.println("\n=============BigBoiBlockchain=============\n"
+                          +"Welcome to BigBoiBlockchain!\n"
+                          +"Write /help to see what commands are available.\n"
+                          +"==========================================");
         for(boolean running = true;running!=false;) {
-            System.out.print("Input: ");
+            System.out.print("> ");
             Scanner input = new Scanner(System.in);
             String command = input.nextLine().toLowerCase();
             String[] strings = command.split(" ");
             try {
                 switch (strings[0]) {
                     case ("transaction"):
-                        transaction(strings[1], strings[2]);
+                        System.out.println("transcation");
+                        Transaction.transaction(strings[1], strings[2]);
                         break;
                     case ("balance"):
-                        balance(strings[1]);
+                        Block.balance(strings[1]);
                         break;
                     case ("add_node"):
-                        addNode(strings[1], strings[2]);
+                        Node.addNode(strings[1], strings[2]);
                         break;
                     case ("list_nodes"):
-                        listNodes();
+                        Node.listNodes();
                         break;
                     case ("remove_node"):
-                        removeNode(strings[1]);
+                        if(!Node.removeNode(strings[1]))
+                            System.out.println("Missing/Invalid arguments"+WRITE_HELP);
                         break;
                     case ("/help"):
                         help();
                         break;
                     case ("exit"):
-                        running = true;
+                        running = false;
                     default:
-                        System.out.println("Bad input, write /help to see available commands.");
+                        System.out.println("Bad input"+WRITE_HELP);
                 }
             }catch(ArrayIndexOutOfBoundsException|NumberFormatException e){
-                System.out.println("Missing/Bad arguments, write /help to see available commands and arguments.");
+                System.out.println("Missing/Invalid arguments"+WRITE_HELP);
             }
         }
     }
-    public static boolean transaction(String amount,String receiver) throws NumberFormatException {
-        double parsedAmount = Double.parseDouble(amount);
-        //TODO:send transaction to all known nodes.
-        return true;
-    }
-
-    public static boolean balance(String targetAccount) {
-        try{
-            //TODO:get balance from chosen
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean addNode(String ip, String port){
-        try{
-
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean listNodes(){
-        try{
-
-        }catch(Exception e){
-            e.printStackTrace();
-            return false;
-        }
-        return true;
-    }
-
-    public static boolean removeNode(String index) throws NumberFormatException {
-        int parsedIndex = Integer.parseInt(index);
-        return true;
-    }
 
     public static void help(){
-        System.out.println("=============Help=============");
-        System.out.println("transaction -amount-(Decimal value) -receiver-(Public key)");
-        System.out.println("balance -target_account-(Public key)");
-        System.out.println("add_node -ip- -port-");
-        System.out.println("list_nodes");
-        System.out.println("remove_node -index-(Integer listed in list_nodes)");
-        System.out.println("exit");
-        System.out.println("==============================");
+        System.out.println("\n=============Help=============\n" +
+                "transaction -amount-(Decimal value) -receiver-(Public key)\n" +
+                "balance -target_account-(Public key)\n" +
+                "add_node -ip- -port-\n" +
+                "list_nodes\n" +
+                "remove_node -index-(Integer listed in list_nodes)\n" +
+                "exit\n" +
+                "==============================");
     }
 }

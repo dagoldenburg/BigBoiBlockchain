@@ -1,5 +1,8 @@
 package Model;
 
+import Model.NetCode.Node;
+import Model.NetCode.PeerConnectionThread;
+
 public class Transaction {
 
     private String from;
@@ -13,4 +16,16 @@ public class Transaction {
         this.amount = amount;
         this.signature = signature;
     }
+
+    /**
+     * @param amount
+     * @param receiver
+     * Sends a transaction out to all known nodes for verification
+     */
+    public static void transaction(String amount,String receiver){
+        for(Node n : Node.getNodes()) {
+            new Thread(new PeerConnectionThread("t" + amount + receiver, n)).start();
+        }
+    }
+
 }
