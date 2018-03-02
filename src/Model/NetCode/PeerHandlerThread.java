@@ -35,6 +35,12 @@ public class PeerHandlerThread implements Runnable {
         try {
             String message = fromClient.readLine();
             System.out.println(message);
+
+            if(message.startsWith("TRANSACTION ")){
+                //add transaction
+            }
+
+
             toClient.writeByte(message.length() > 10 ? 1 : 0);
         } catch (IOException e) {
             e.printStackTrace();

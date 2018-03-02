@@ -1,14 +1,15 @@
 package Model;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Block {
 
-    Block previousBlock;
-    LinkedList<Transaction> transactionPool;
+    String previousBlockDigest;
+    ArrayList<Transaction> transactionPool;
 
-    public Block(Block previousBlock, LinkedList<Transaction> transactionPool) {
-        this.previousBlock = previousBlock;
+    public Block(String previousBlock, ArrayList<Transaction> transactionPool) {
+        this.previousBlockDigest = previousBlock;
         this.transactionPool = transactionPool;
     }
 
@@ -19,5 +20,18 @@ public class Block {
      */
     public static double balance(String targetAccount) {
        return 0.0;
+    }
+
+    public void setPreviousBlock(String b){
+        previousBlockDigest = b;
+
+    }
+
+    public String getPreviousBlock(){
+        return previousBlockDigest;
+    }
+
+    public ArrayList<Transaction> getTransactionPool(){
+        return (ArrayList<Transaction>) transactionPool.clone();
     }
 }
