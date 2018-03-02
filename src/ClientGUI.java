@@ -1,10 +1,17 @@
 import Model.Block;
+import Model.Message;
 import Model.NetCode.ListenConnectionThread;
 import Model.NetCode.Node;
 import Model.NetCode.PeerConnectionThread;
+import Model.Security.Keys;
 import Model.Transaction;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.*;
+import java.security.interfaces.ECPublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 import java.util.Scanner;
 
 public class ClientGUI {
@@ -12,7 +19,14 @@ public class ClientGUI {
     final static String WRITE_HELP = ", write /help to see available commands and arguments.";
 
     public static void main(String[] argsv){
-        new Thread(new ListenConnectionThread(argsv[0]));
+        try {
+            Keys.generateKeys();
+            System.out.println(Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded()));
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        new Thread(new ListenConnectionThread(argsv[0])).start();
         System.out.println("\n=============BigBoiBlockchain=============\n"
                           +"Welcome to BigBoiBlockchain!\n"
                           +"Write /help to see what commands are available.\n"
@@ -26,7 +40,9 @@ public class ClientGUI {
                 switch (strings[0]) {
                     case ("transaction"):
                         System.out.println("transcation");
-                        Transaction.transaction(strings[1], strings[2]);
+                        if(!Message.sendMessage(Message.TYPE_TRANSACTION,strings[1], strings[2])){
+                            System.out.println("Could not send message");
+                        }
                         break;
                     case ("balance"):
                         Block.balance(strings[1]);
