@@ -1,4 +1,4 @@
-package Model;
+package Model.NetCode;
 
 import Model.NetCode.Node;
 import Model.NetCode.PeerConnectionThread;
@@ -34,7 +34,7 @@ public class Message {
      * @param type
      * @param amount
      * @param receiver
-     * @return The message to be sent plus the publicc key and the signature.
+     * @return The message to be sent plus the public key and the signature.
      * Creates a standardized message so that communication across the blockchain network is uniform.
      */
     private static String createStandardizedMessage(char type, String amount, String receiver)  {

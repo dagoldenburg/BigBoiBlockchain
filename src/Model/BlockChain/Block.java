@@ -1,7 +1,6 @@
-package Model;
+package Model.BlockChain;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Block {
 

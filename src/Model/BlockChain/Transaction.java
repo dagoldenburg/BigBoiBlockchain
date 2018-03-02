@@ -1,4 +1,4 @@
-package Model;
+package Model.BlockChain;
 
 import Model.NetCode.Node;
 import Model.NetCode.PeerConnectionThread;

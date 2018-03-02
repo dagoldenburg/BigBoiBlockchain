@@ -1,14 +1,10 @@
 package Model.BlockChain;
 
-import Model.Block;
 import Model.NetCode.Node;
 import Model.NetCode.PeerConnectionThread;
-import Model.Transaction;
-import sun.plugin2.message.Message;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Random;
 

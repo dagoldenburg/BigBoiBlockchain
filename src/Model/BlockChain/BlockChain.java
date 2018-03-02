@@ -1,9 +1,5 @@
 package Model.BlockChain;
 
-import Model.Block;
-
-import java.util.LinkedList;
-
 public class BlockChain {
     private static String lastBlock = "";
 

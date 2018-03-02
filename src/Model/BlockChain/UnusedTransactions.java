@@ -1,7 +1,5 @@
 package Model.BlockChain;
 
-import Model.Transaction;
-
 import java.util.ArrayList;
 
 public class UnusedTransactions {

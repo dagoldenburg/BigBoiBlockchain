@@ -1,16 +1,9 @@
-import Model.Block;
-import Model.Message;
+import Model.BlockChain.Block;
+import Model.NetCode.Message;
 import Model.NetCode.ListenConnectionThread;
 import Model.NetCode.Node;
-import Model.NetCode.PeerConnectionThread;
 import Model.Security.Keys;
-import Model.Transaction;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.security.*;
-import java.security.interfaces.ECPublicKey;
-import java.security.spec.X509EncodedKeySpec;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -39,7 +32,6 @@ public class ClientGUI {
             try {
                 switch (strings[0]) {
                     case ("transaction"):
-                        System.out.println("transcation");
                         if(!Message.sendMessage(Message.TYPE_TRANSACTION,strings[1], strings[2])){
                             System.out.println("Could not send message");
                         }

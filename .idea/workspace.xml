@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de156ce3-8e04-4581-8b5e-2c70bd962e1d" name="Default" comment="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/ClientGUI.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/Block.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/BlockChain/BlockChain.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/BlockChain/Miner.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/BlockChain/UnusedTransactions.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/ListenConnectionThread.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/Node.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerConnectionThread.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerHandlerThread.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/Transaction.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Tests/BlockChainTests.class" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Model/BlockChain/UnusedTransactions.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Tests/BlockChainTests.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Block.java" afterPath="$PROJECT_DIR$/src/Model/Block.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Message.java" afterPath="$PROJECT_DIR$/src/Model/Message.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Model/Message.java" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Model/Block.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Block.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/Model/Message.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/Message.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ClientGUI.java" afterPath="$PROJECT_DIR$/src/ClientGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -35,18 +24,18 @@
       <file leaf-file-name="ClientGUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ClientGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
+            <state relative-caret-position="51">
+              <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Message.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/NetCode/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
+            <state relative-caret-position="68">
+              <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -64,11 +53,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PeerHandlerThread.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PeerHandlerThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+            <state relative-caret-position="272">
+              <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -77,7 +66,7 @@
       <file leaf-file-name="PeerConnectionThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerConnectionThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
+            <state relative-caret-position="199">
               <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
               <folding />
             </state>
@@ -88,11 +77,11 @@
         <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Miner.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="17">
-              <caret line="68" column="70" lean-forward="false" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
+              <caret line="64" column="70" lean-forward="false" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#451#452#0" expanded="true" />
-                <element signature="e#499#500#0" expanded="true" />
+                <element signature="e#337#338#0" expanded="true" />
+                <element signature="e#385#386#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -111,35 +100,29 @@
       <file leaf-file-name="UnusedTransactions.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/UnusedTransactions.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
+            <state relative-caret-position="289">
+              <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#252#253#0" expanded="true" />
-                <element signature="e#287#288#0" expanded="true" />
+                <element signature="e#225#226#0" expanded="true" />
+                <element signature="e#260#261#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Block.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Block.java">
+        <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Block.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="408">
-              <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#700#701#0" expanded="true" />
-                <element signature="e#742#743#0" expanded="true" />
-                <element signature="e#799#800#0" expanded="true" />
-                <element signature="e#870#871#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Model/Transaction.java">
+      <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="68">
               <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
@@ -168,7 +151,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/ClientGUI.java" />
         <option value="$PROJECT_DIR$/src/Model/BlockChain/UnusedTransactions.java" />
         <option value="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" />
         <option value="$PROJECT_DIR$/src/Tests/BlockChainTests.java" />
@@ -177,6 +159,10 @@
         <option value="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" />
         <option value="$PROJECT_DIR$/src/Model/Message.java" />
         <option value="$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java" />
+        <option value="$PROJECT_DIR$/src/ClientGUI.java" />
+        <option value="$PROJECT_DIR$/src/Model/NetCode/Message.java" />
+        <option value="$PROJECT_DIR$/src/Model/BlockChain/Block.java" />
+        <option value="$PROJECT_DIR$/src/Model/BlockChain/Transaction.java" />
       </list>
     </option>
   </component>
@@ -245,6 +231,13 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Model" type="462c0819:PsiDirectoryNode" />
               <item name="NetCode" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="BigBoiBlockchain" type="b2602c69:ProjectViewProjectNode" />
+              <item name="BigBoiBlockchain" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+              <item name="Security" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BigBoiBlockchain" type="b2602c69:ProjectViewProjectNode" />
@@ -396,16 +389,23 @@
       <option name="presentableId" value="Default" />
       <updated>1519982841299</updated>
       <workItem from="1519982847246" duration="8630000" />
-      <workItem from="1519993162648" duration="236000" />
+      <workItem from="1519993162648" duration="763000" />
     </task>
+    <task id="LOCAL-00001" summary="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java">
+      <created>1519993480080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1519993480080</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8866000" />
+    <option name="totallyTimeSpent" value="9393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -419,7 +419,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2920937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2920937" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -441,6 +441,10 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -503,27 +507,21 @@
           <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Block.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Block.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Transaction.java">
+    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
@@ -537,8 +535,8 @@
           <caret line="68" column="70" lean-forward="true" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -550,8 +548,8 @@
           <caret line="10" column="23" lean-forward="false" selection-start-line="10" selection-start-column="23" selection-end-line="10" selection-end-column="23" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#283#284#0" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
+            <element signature="e#232#233#0" expanded="false" />
+            <element signature="e#264#265#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -572,48 +570,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Block.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#700#701#0" expanded="true" />
-            <element signature="e#742#743#0" expanded="true" />
-            <element signature="e#799#800#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Miner.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="17">
-          <caret line="68" column="70" lean-forward="false" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
+          <caret line="64" column="70" lean-forward="false" selection-start-line="64" selection-start-column="70" selection-end-line="64" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#451#452#0" expanded="true" />
-            <element signature="e#499#500#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Transaction.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/UnusedTransactions.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="27" lean-forward="false" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#252#253#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
+            <element signature="e#337#338#0" expanded="true" />
+            <element signature="e#385#386#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -628,25 +592,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ClientGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="35" column="30" lean-forward="false" selection-start-line="35" selection-start-column="30" selection-end-line="35" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Model/Message.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="36" column="52" lean-forward="true" selection-start-line="36" selection-start-column="52" selection-end-line="36" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerConnectionThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
+        <state relative-caret-position="199">
           <caret line="22" column="39" lean-forward="false" selection-start-line="22" selection-start-column="39" selection-end-line="22" selection-end-column="39" />
           <folding />
         </state>
@@ -654,8 +602,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="38" column="47" lean-forward="false" selection-start-line="38" selection-start-column="47" selection-end-line="38" selection-end-column="47" />
+        <state relative-caret-position="272">
+          <caret line="39" column="0" lean-forward="true" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/UnusedTransactions.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="17" column="0" lean-forward="true" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#225#226#0" expanded="true" />
+            <element signature="e#260#261#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ClientGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="33" column="41" lean-forward="false" selection-start-line="33" selection-start-column="41" selection-end-line="33" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/NetCode/Message.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="12" column="13" lean-forward="false" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Block.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Transaction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
         </state>
       </provider>

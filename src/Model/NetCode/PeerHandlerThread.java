@@ -36,11 +36,11 @@ public class PeerHandlerThread implements Runnable {
             String message = fromClient.readLine();
             System.out.println(message);
 
-            if(message.startsWith("TRANSACTION ")){
-                //add transaction
+            if(message.startsWith("t")){ // transaction
+
+            }else if(message.startsWith("b ")){ //suggestion for new blockchain
+
             }
-
-
             toClient.writeByte(message.length() > 10 ? 1 : 0);
         } catch (IOException e) {
             e.printStackTrace();

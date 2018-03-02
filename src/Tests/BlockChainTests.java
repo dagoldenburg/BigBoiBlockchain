@@ -2,7 +2,7 @@ package Tests;
 
 import Model.BlockChain.Miner;
 import Model.BlockChain.UnusedTransactions;
-import Model.Transaction;
+import Model.BlockChain.Transaction;
 
 public class BlockChainTests {
 
