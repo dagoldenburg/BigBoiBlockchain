@@ -23,9 +23,16 @@ public class Transaction {
      * Sends a transaction out to all known nodes for verification
      */
     public static void transaction(String amount,String receiver){
-        for(Node n : Node.getNodes()) {
+        for(Node n : Node.getNodes()){
             new Thread(new PeerConnectionThread("t" + amount + receiver, n)).start();
         }
+    }
+
+    @Override
+    public String toString(){
+        String s = "";
+        s += " " + from + "-" + to + "-" + amount + "-" + signature;
+        return s;
     }
 
 }

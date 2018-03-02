@@ -12,7 +12,7 @@ public class ClientGUI {
     final static String WRITE_HELP = ", write /help to see available commands and arguments.";
 
     public static void main(String[] argsv){
-        new Thread(new ListenConnectionThread(argsv[0]));
+        new Thread(new ListenConnectionThread(argsv[0])).start();
         System.out.println("\n=============BigBoiBlockchain=============\n"
                           +"Welcome to BigBoiBlockchain!\n"
                           +"Write /help to see what commands are available.\n"
