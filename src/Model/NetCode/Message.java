@@ -1,13 +1,9 @@
 package Model.NetCode;
 
-import Model.NetCode.Node;
-import Model.NetCode.PeerConnectionThread;
 import Model.Security.Keys;
 
-import java.io.UnsupportedEncodingException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.SignatureException;
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 
 public class Message {
@@ -21,12 +17,17 @@ public class Message {
      * Sends a transaction out to all known nodes for verification
      */
     public static boolean sendMessage(char type, String amount,String receiver){
+        System.out.println("jag är i send message");
         try {
-            for (Node n : Node.getNodes())
+            for (Node n : Node.getNodes()) {
+                System.out.println("jag är i en cool loop");
                 new Thread(new PeerConnectionThread(createStandardizedMessage(type, amount, receiver), n)).start();
+            }
         }catch(NullPointerException e){
+            System.out.println("bajs");
             return false;
         }
+        System.out.println("korv");
         return true;
     }
 
@@ -40,7 +41,8 @@ public class Message {
     private static String createStandardizedMessage(char type, String amount, String receiver)  {
         String message = type+" "+amount+" "+receiver;
         try {
-            return message+" "+Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded())+" "+Keys.generateSignature(message);
+            String signature = new BigInteger(1, Keys.generateSignature(message)).toString(16);
+            return message+" "+Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded())+" "+signature+"\n";
         } catch (Exception e) {
             e.printStackTrace();
         }

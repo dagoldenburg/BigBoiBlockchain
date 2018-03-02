@@ -22,8 +22,10 @@ public class ListenConnectionThread implements Runnable{
         try {
             ServerSocket listener = new ServerSocket(port);
             while(true){
+                System.out.println(" i wanna acccept biiich");
                 Socket peerConnection = listener.accept();
                 new Thread(new PeerHandlerThread(peerConnection)).start();
+                System.out.println(" i accepted and started biiichchchhc");
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -20,10 +20,10 @@ public class Miner implements Runnable {
     @Override
     public void run() {
         while(true) { //run forever
-            if (!UnusedTransactions.getTransactions().isEmpty()) { //begin new block mine
+            if (!Transaction.getUnusedTransactions().isEmpty()) { //begin new block mine
                 long startTime = System.currentTimeMillis();
                 System.out.println("STARTING NEW BLOCK");
-                ArrayList<Transaction> txs = UnusedTransactions.getTransactions();
+                ArrayList<Transaction> txs = Transaction.getUnusedTransactions();
                 ArrayList<Transaction> txscopy = (ArrayList<Transaction>) txs.clone();
                 txs.clear();
                 Random r = new Random();

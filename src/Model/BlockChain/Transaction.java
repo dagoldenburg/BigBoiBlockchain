@@ -4,6 +4,7 @@ import Model.NetCode.Node;
 import Model.NetCode.PeerConnectionThread;
 import Model.Security.Keys;
 
+import java.util.ArrayList;
 import java.util.Base64;
 
 public class Transaction {
@@ -20,7 +21,16 @@ public class Transaction {
         this.signature = signature;
     }
 
+    private static ArrayList<Transaction> unusedTransactions = new ArrayList<>();
 
+    public static ArrayList<Transaction> getUnusedTransactions(){
+        return unusedTransactions;
+    }
 
+    public static void addUnusedTransaction(Transaction t){
+        if(t != null){
+            unusedTransactions.add(t);
+        }
+    }
 
 }
