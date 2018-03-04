@@ -17,17 +17,14 @@ public class Message {
      * Sends a transaction out to all known nodes for verification
      */
     public static boolean sendMessage(char type, String amount,String receiver){
-        System.out.println("jag är i send message");
         try {
             for (Node n : Node.getNodes()) {
-                System.out.println("jag är i en cool loop");
-                new Thread(new PeerConnectionThread(createStandardizedMessage(type, amount, receiver), n)).start();
+                String string = createStandardizedMessage(type, amount, receiver);
+                new Thread(new PeerConnectionThread(string, n)).start();
             }
         }catch(NullPointerException e){
-            System.out.println("bajs");
             return false;
         }
-        System.out.println("korv");
         return true;
     }
 
@@ -41,11 +38,24 @@ public class Message {
     private static String createStandardizedMessage(char type, String amount, String receiver)  {
         String message = type+" "+amount+" "+receiver;
         try {
-            String signature = new BigInteger(1, Keys.generateSignature(message)).toString(16);
-            return message+" "+Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded())+" "+signature+"\n";
+           // String signature = new BigInteger(1, Keys.generateSignature(message)).toString(16);
+            String s = bytesToHex(Keys.generateSignature(message));
+            System.out.println(s);
+            return message+" "+Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded())+" "+s+"\n";
         } catch (Exception e) {
             e.printStackTrace();
         }
         return null;
+    }
+
+    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+    public static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for ( int j = 0; j < bytes.length; j++ ) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = hexArray[v >>> 4];
+            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        }
+        return new String(hexChars);
     }
 }

@@ -4,6 +4,7 @@ import Model.BlockChain.Transaction;
 import Model.Security.Keys;
 
 import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
 import java.security.*;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.X509EncodedKeySpec;
@@ -48,9 +49,7 @@ public class PeerHandlerThread implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("din mama e bög");
             String message = fromClient.readLine();
-            System.out.println(message);
             String[] strings = message.split(" ");
             if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
                 Transaction.addUnusedTransaction(
@@ -62,18 +61,11 @@ public class PeerHandlerThread implements Runnable {
             PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
                     Base64.getDecoder().decode(strings[3].getBytes())
             ));
-            byte[] signature = new BigInteger(1,strings[4].getBytes()).toByteArray();
+
+            System.out.println(strings[4]);
             toClient.writeByte(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
-                    pub,signature) ? 1 : 0);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (SignatureException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        } catch (InvalidKeySpecException e) {
+                    pub,hexStringToByteArray(strings[4])) ? 1 : 0);
+        } catch (IOException | SignatureException | InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         } finally{
             try {
@@ -84,5 +76,15 @@ public class PeerHandlerThread implements Runnable {
 
             }
         }
+    }
+    public static byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
     }
 }
