@@ -1,5 +1,7 @@
 package Model.NetCode;
 
+import Model.BlockChain.BlockChain;
+
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.IOException;
@@ -39,6 +41,21 @@ public class PeerHandlerThread implements Runnable {
             if(message.startsWith("t")){ // transaction
 
             }else if(message.startsWith("b ")){ //suggestion for new blockchain
+                System.out.println("Received new block");
+                if(message.length() > 2){
+                    String s = message.substring(2,message.length()-1);
+                    String[] strs = s.split("----");
+                    if(strs.length > 1){
+                        String block = strs[0];
+                        String digest = strs[1];
+                        BlockChain.addBlock(block,digest);
+                    }else{
+                        System.out.println("Error when parsing string");
+                    }
+                }else{
+                    System.out.println("Format failure");
+                }
+
 
             }
             toClient.writeByte(message.length() > 10 ? 1 : 0);

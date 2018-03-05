@@ -1,4 +1,5 @@
 import Model.BlockChain.Block;
+import Model.BlockChain.Miner;
 import Model.NetCode.Message;
 import Model.NetCode.ListenConnectionThread;
 import Model.NetCode.Node;
@@ -19,7 +20,17 @@ public class ClientGUI {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        ////////****** START THREADS ****** /////////////
         new Thread(new ListenConnectionThread(argsv[0])).start();
+        new Thread( new Miner()).start();
+
+
+
+        //***********************************************
+
+
         System.out.println("\n=============BigBoiBlockchain=============\n"
                           +"Welcome to BigBoiBlockchain!\n"
                           +"Write /help to see what commands are available.\n"

@@ -40,6 +40,7 @@ public class Message {
     private static String createStandardizedMessage(char type, String amount, String receiver)  {
         String message = type+" "+amount+" "+receiver;
         try {
+
             return message+" "+Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded())+" "+Keys.generateSignature(message);
         } catch (Exception e) {
             e.printStackTrace();

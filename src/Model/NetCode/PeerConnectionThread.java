@@ -28,7 +28,7 @@ public class PeerConnectionThread implements Runnable {
         } catch (IOException e) {
             System.out.println("Could not open connection to "+node.getIp()+":"+node.getPort());
         }
-        try {
+        try{
             toPeer.writeBytes(message);
             if(fromPeer.readLine().equals(0)){
                 System.out.println("Transaction failed");

@@ -10,13 +10,6 @@ import java.util.Random;
 
 public class Miner implements Runnable {
 
-    ArrayList<Transaction> transactions;
-
-    public Miner(){
-        transactions = new ArrayList<>();
-    }
-
-
     @Override
     public void run() {
         while(true) { //run forever
@@ -48,6 +41,9 @@ public class Miner implements Runnable {
 
                             //Send broadcast
                             //Add to blockchain as last block
+                            sendBlockBroadcast(message,digest);
+                            BlockChain.addBlock(message,digest);
+
                             break;
                         }
                     }
@@ -61,8 +57,10 @@ public class Miner implements Runnable {
     }
 
     private void sendBlockBroadcast(String block,String digest){
+        String message = "b " + block + "----" + digest;
+        System.out.println("Sending: " + message);
         for(Node n : Node.getNodes()){
-            new Thread(new PeerConnectionThread("BLOCK " + block + "///" + digest,n)).start();
+            new Thread(new PeerConnectionThread(message,n)).start();
         }
     }
 

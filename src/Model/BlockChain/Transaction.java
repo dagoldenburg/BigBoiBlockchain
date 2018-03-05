@@ -20,7 +20,14 @@ public class Transaction {
         this.signature = signature;
     }
 
+    @Override
+    public String toString(){
+        String s = "";
 
+        s += " " + from + "-" + to + "-" + amount + "-" + signature;
+
+        return s;
+    }
 
 
 }
