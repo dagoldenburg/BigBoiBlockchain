@@ -5,6 +5,8 @@ import Model.NetCode.ListenConnectionThread;
 import Model.NetCode.Node;
 import Model.Security.Keys;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.Base64;
 import java.util.Scanner;
 
@@ -49,8 +51,10 @@ public class ClientGUI {
                     case ("balance"):
                         Block.balance(strings[1]);
                         break;
+                    case("show_blocks"):
+
                     case ("add_node"):
-                        Node.addNode(strings[1], strings[2]);
+                        Node.addNode(strings[1], strings[2], "127.0.0.1"+" "+argsv[0]);
                         break;
                     case ("list_nodes"):
                         Node.listNodes();
@@ -77,6 +81,7 @@ public class ClientGUI {
         System.out.println("\n=============Help=============\n" +
                 "transaction -amount-(Decimal value) -receiver-(Public key)\n" +
                 "balance -target_account-(Public key)\n" +
+                "show_blocks\n"+
                 "add_node -ip- -port-\n" +
                 "list_nodes\n" +
                 "remove_node -index-(Integer listed in list_nodes)\n" +
