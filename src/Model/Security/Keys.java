@@ -30,7 +30,7 @@ public class Keys {
     public static boolean validateSignature(String message,PublicKey pub,byte[] signature)
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException, UnsupportedEncodingException {
         Signature ecdsa = Signature.getInstance("SHA256withECDSA");
-        ecdsa.initVerify(pair.getPublic());
+        ecdsa.initVerify(pub);
         ecdsa.update(message.getBytes("UTF-8"));
         return ecdsa.verify(signature);
     }

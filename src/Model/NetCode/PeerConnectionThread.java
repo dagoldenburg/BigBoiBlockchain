@@ -22,7 +22,7 @@ public class PeerConnectionThread implements Runnable {
         DataOutputStream toPeer = null;
         BufferedReader fromPeer = null;
         try {
-            messageSocket.connect(new InetSocketAddress(node.getIp(),node.getPort()),2000);
+            messageSocket.connect(new InetSocketAddress(node.getIp(),node.getPort()));
             toPeer = new DataOutputStream(messageSocket.getOutputStream());
             fromPeer = new BufferedReader(new InputStreamReader(messageSocket.getInputStream()));
         } catch (IOException e) {

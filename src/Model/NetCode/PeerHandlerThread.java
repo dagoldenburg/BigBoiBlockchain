@@ -1,5 +1,14 @@
 package Model.NetCode;
 
+import Model.BlockChain.Transaction;
+import Model.Security.Keys;
+
+import java.math.BigInteger;
+import java.nio.charset.StandardCharsets;
+import java.security.*;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import java.util.Base64;
 import Model.BlockChain.BlockChain;
 
 import java.io.BufferedReader;
@@ -31,15 +40,22 @@ public class PeerHandlerThread implements Runnable {
      * Receives one message and returns one answer.
      * Answer depends on if the message can be correctly verified,
      * 1 if received message is verifiable, 0 if not.
+     *
+     * strings for transaction:
+     * strings[0] = type
+     * strings[1] = amount
+     * strings[2] = receiver(public key)
+     * strings[3] = public key of sender
+     * strings[4] = signature
      */
     @Override
     public void run() {
         try {
             String message = fromClient.readLine();
-            System.out.println(message);
-
-            if(message.startsWith("t")){ // transaction
-
+            String[] strings = message.split(" ");
+            if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
+                Transaction.addUnusedTransaction(
+                        new Transaction(strings[3],strings[2],Double.parseDouble(strings[1]),strings[4]));
             }else if(message.startsWith("b ")){ //suggestion for new blockchain
                 System.out.println("Received new block");
                 if(message.length() > 2){
@@ -56,12 +72,18 @@ public class PeerHandlerThread implements Runnable {
                     System.out.println("Format failure");
                 }
 
-
             }
-            toClient.writeByte(message.length() > 10 ? 1 : 0);
-        } catch (IOException e) {
+            KeyFactory kf = KeyFactory.getInstance("EC");
+            PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
+                    Base64.getDecoder().decode(strings[3].getBytes())
+            ));
+
+            System.out.println(strings[4]);
+            toClient.writeByte(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
+                    pub,hexStringToByteArray(strings[4])) ? 1 : 0);
+        } catch (IOException | SignatureException | InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
-        }finally{
+        } finally{
             try {
                 connection.close();
                 fromClient.close();
@@ -70,5 +92,15 @@ public class PeerHandlerThread implements Runnable {
 
             }
         }
+    }
+    public static byte[] hexStringToByteArray(String s) {
+        int len = s.length();
+        byte[] data = new byte[len / 2];
+
+        for (int i = 0; i < len; i += 2) {
+            data[i / 2] = (byte) ((Character.digit(s.charAt(i), 16) << 4)
+                    + Character.digit(s.charAt(i+1), 16));
+        }
+        return data;
     }
 }
