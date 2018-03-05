@@ -58,12 +58,12 @@ public class PeerHandlerThread implements Runnable {
             if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
                 System.out.println("Received transaction");
                 KeyFactory kf = KeyFactory.getInstance("EC");
-                PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
-                        Base64.getDecoder().decode(strings[3].getBytes())
-                ));
-
-                System.out.println(strings[4]);
-                if(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
+                PublicKey pub;
+                    pub = kf.generatePublic(new X509EncodedKeySpec(
+                            Base64.getDecoder().decode(strings[3].getBytes())
+                    ));
+                String data = strings[1]+strings[2];
+                if(Keys.validateSignature(data,
                         pub,hexStringToByteArray(strings[4]))){
                     System.out.println("Signature was valid!");
                         toClient.writeByte(1);

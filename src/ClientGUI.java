@@ -12,7 +12,7 @@ public class ClientGUI {
 
     final static String WRITE_HELP = ", write /help to see available commands and arguments.";
 
-    public static void main(String[] argsv){
+    public static void main(String[] argsv) {
         try {
             Keys.generateKeys();
             System.out.println(Base64.getEncoder().encodeToString(Keys.getPair().getPublic().getEncoded()));
@@ -24,18 +24,17 @@ public class ClientGUI {
 
         ////////****** START THREADS ****** /////////////
         new Thread(new ListenConnectionThread(argsv[0])).start();
-        new Thread( new Miner()).start();
-
+        new Thread(new Miner()).start();
 
 
         //***********************************************
 
 
         System.out.println("\n=============BigBoiBlockchain=============\n"
-                          +"Welcome to BigBoiBlockchain!\n"
-                          +"Write /help to see what commands are available.\n"
-                          +"==========================================");
-        for(boolean running = true;running!=false;) {
+                + "Welcome to BigBoiBlockchain!\n"
+                + "Write /help to see what commands are available.\n"
+                + "==========================================");
+        for (boolean running = true; running != false; ) {
             System.out.print("> ");
             Scanner input = new Scanner(System.in);
             String command = input.nextLine().toLowerCase();
@@ -43,7 +42,7 @@ public class ClientGUI {
             try {
                 switch (strings[0]) {
                     case ("transaction"):
-                        if(!Message.sendMessage(Message.TYPE_TRANSACTION,strings[1], strings[2])){
+                        if (!Message.sendMessage(Message.TYPE_TRANSACTION, strings[1], strings[2])) {
                             System.out.println("Could not send message");
                         }
                         break;
@@ -57,8 +56,8 @@ public class ClientGUI {
                         Node.listNodes();
                         break;
                     case ("remove_node"):
-                        if(!Node.removeNode(strings[1]))
-                            System.out.println("Missing/Invalid arguments"+WRITE_HELP);
+                        if (!Node.removeNode(strings[1]))
+                            System.out.println("Missing/Invalid arguments" + WRITE_HELP);
                         break;
                     case ("/help"):
                         help();
@@ -66,15 +65,15 @@ public class ClientGUI {
                     case ("exit"):
                         running = false;
                     default:
-                        System.out.println("Bad input"+WRITE_HELP);
+                        System.out.println("Bad input" + WRITE_HELP);
                 }
-            }catch(ArrayIndexOutOfBoundsException|NumberFormatException e){
-                System.out.println("Missing/Invalid arguments"+WRITE_HELP);
+            } catch (ArrayIndexOutOfBoundsException | NumberFormatException e) {
+                System.out.println("Missing/Invalid arguments" + WRITE_HELP);
             }
         }
     }
 
-    public static void help(){
+    public static void help() {
         System.out.println("\n=============Help=============\n" +
                 "transaction -amount-(Decimal value) -receiver-(Public key)\n" +
                 "balance -target_account-(Public key)\n" +

@@ -22,7 +22,7 @@ public class Keys {
             throws InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException, SignatureException {
         Signature ecdsa = Signature.getInstance("SHA256withECDSA");
         ecdsa.initSign(pair.getPrivate());
-        byte[] strByte = message.getBytes("UTF-8");
+        byte[] strByte = message.getBytes();
         ecdsa.update(strByte);
         return ecdsa.sign();
     }
@@ -31,7 +31,7 @@ public class Keys {
             throws NoSuchAlgorithmException, InvalidKeyException, SignatureException, UnsupportedEncodingException {
         Signature ecdsa = Signature.getInstance("SHA256withECDSA");
         ecdsa.initVerify(pub);
-        ecdsa.update(message.getBytes("UTF-8"));
+        ecdsa.update(message.getBytes());
         return ecdsa.verify(signature);
     }
 
