@@ -23,6 +23,8 @@ public class ListenConnectionThread implements Runnable{
             ServerSocket listener = new ServerSocket(port);
             while(true){
                 Socket peerConnection = listener.accept();
+                //Add node to nodes
+                System.out.println("Received new node: " + peerConnection.getInetAddress().toString() + " " + peerConnection.getPort());
                 new Thread(new PeerHandlerThread(peerConnection)).start();
             }
         } catch (IOException e) {

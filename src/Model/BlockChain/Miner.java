@@ -12,52 +12,58 @@ public class Miner implements Runnable {
 
     @Override
     public void run() {
+        long lastUpdate = 0;
         while(true) { //run forever
-            if (!Transaction.getUnusedTransactions().isEmpty()) { //begin new block mine
-                long startTime = System.currentTimeMillis();
-                System.out.println("STARTING NEW BLOCK");
-                ArrayList<Transaction> txs = Transaction.getUnusedTransactions();
-                ArrayList<Transaction> txscopy = (ArrayList<Transaction>) txs.clone();
-                txs.clear();
-                Random r = new Random();
-                int val = r.nextInt(100);
-                txscopy.add(new Transaction("Jakob","Jakob",val,"Signatur"));
+            if(System.currentTimeMillis() > lastUpdate + 1000){
+                if (!Transaction.getUnusedTransactions().isEmpty()) { //begin new block mine
+                    long startTime = System.currentTimeMillis();
+                    System.out.println("STARTING NEW BLOCK");
+                    ArrayList<Transaction> txs = Transaction.getUnusedTransactions();
+                    ArrayList<Transaction> txscopy = (ArrayList<Transaction>) txs.clone();
+                    txs.clear();
+                    Random r = new Random();
+                    int val = r.nextInt(100);
+                    txscopy.add(new Transaction("Jakob","Jakob",val,"Signatur"));
 
-                String lastBlock = BlockChain.getLastBlock();
-                Block nextBlock = new Block(lastBlock,txscopy);
+                    String lastBlock = BlockChain.getLastBlock();
+                    Block nextBlock = new Block(lastBlock,txscopy);
 
-                ///TRY SOLVE DA BLOCK
-                int counter = 0;
-                while(lastBlock == BlockChain.getLastBlock()){
-                    String message = getMessage(nextBlock,counter);
-                    String digest = getDigest(message);
-                  //  System.out.println("New digest: " + digest);
-                    if(digest.length() > 1){
-                        if(didStartWith(5,digest)){
-                            System.out.println(digest);
-                            System.out.println(message);
-                            System.out.println("DID START WITH ZERO! ADDING TO BLOCKCHAIN");
-                            System.out.println("TIME SPENT MINING: " + (System.currentTimeMillis() - startTime) + " MS.");
+                    ///TRY SOLVE DA BLOCK
+                    int counter = 0;
+                    while(lastBlock == BlockChain.getLastBlock()){
+                        String message = getMessage(nextBlock,counter);
+                        String digest = getDigest(message);
+                        //  System.out.println("New digest: " + digest);
+                        if(digest.length() > 1){
+                            if(didStartWith(5,digest)){
+                                System.out.println(digest);
+                                System.out.println(message);
+                                System.out.println("DID START WITH ZERO! ADDING TO BLOCKCHAIN");
+                                System.out.println("TIME SPENT MINING: " + (System.currentTimeMillis() - startTime) + " MS.");
 
-                            //Send broadcast
-                            //Add to blockchain as last block
-                            sendBlockBroadcast(message,digest);
-                            BlockChain.addBlock(message,digest);
+                                //Send broadcast
+                                //Add to blockchain as last block
+                                sendBlockBroadcast(message,digest);
+                                BlockChain.addBlock(message,digest);
 
-                            break;
+                                break;
+                            }
                         }
+                        counter++;
                     }
-                    counter++;
-                }
 
-            }else{
-                return;
+                }else{
+                 //   System.out.println("No unused transactions");
+                }
+                lastUpdate = System.currentTimeMillis();
             }
+
+
         }
     }
 
     private void sendBlockBroadcast(String block,String digest){
-        String message = "b " + block + "----" + digest;
+        String message = "b " + block + "----" + digest + "\n";
         System.out.println("Sending: " + message);
         for(Node n : Node.getNodes()){
             new Thread(new PeerConnectionThread(message,n)).start();

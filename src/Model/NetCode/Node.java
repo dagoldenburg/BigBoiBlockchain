@@ -11,6 +11,10 @@ public class Node {
         this.port = Integer.parseInt(port);
         this.ip = ip;
     }
+    private Node(String ip, int port){
+        this.port = port;
+        this.ip = ip;
+    }
 
     /**
      * @return All nodes in nodes list.
@@ -47,6 +51,10 @@ public class Node {
         return true;
     }
 
+    public static boolean addNode(String ip,  int port){
+        nodes.add(new Node(ip,port));
+        return true;
+    }
     /**
      * @param index
      * @return True if node was removed, false if it couldn't be.

@@ -36,7 +36,13 @@ public class Transaction {
 
     public static void addUnusedTransaction(Transaction t){
         if(t != null){
+            System.out.println("Adding transaction to arraylist!");
             unusedTransactions.add(t);
+            if(!unusedTransactions.isEmpty()){
+                System.out.println("IS NOT EMPTY");
+            }else{
+                System.out.println("ITS EMPTY");
+            }
         }
     }
 
