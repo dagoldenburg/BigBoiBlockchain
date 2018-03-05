@@ -1,13 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de156ce3-8e04-4581-8b5e-2c70bd962e1d" name="Default" comment="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java">
+    <list default="true" id="de156ce3-8e04-4581-8b5e-2c70bd962e1d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BigBoiBlockchain/ClientGUI.class" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/ClientGUI.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerConnectionThread.class" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerConnectionThread.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerHandlerThread.class" afterPath="$PROJECT_DIR$/out/production/BigBoiBlockchain/Model/NetCode/PeerHandlerThread.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/ClientGUI.java" afterPath="$PROJECT_DIR$/src/ClientGUI.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/Block.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Block.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/BlockChain.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Miner.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/BlockChain/Transaction.java" afterPath="$PROJECT_DIR$/src/Model/BlockChain/Transaction.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NetCode/ListenConnectionThread.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/ListenConnectionThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NetCode/Message.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/Message.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NetCode/PeerConnectionThread.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/PeerConnectionThread.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java" afterPath="$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Model/Security/Keys.java" afterPath="$PROJECT_DIR$/src/Model/Security/Keys.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,9 +38,11 @@
       <file leaf-file-name="Message.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/NetCode/Message.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="368">
-              <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-              <folding />
+            <state relative-caret-position="283">
+              <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+              <folding>
+                <marker date="1520254222514" expanded="true" signature="2372:2568" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,10 +73,11 @@
       <file leaf-file-name="PeerHandlerThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="257">
-              <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+            <state relative-caret-position="223">
+              <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <marker date="1520254268104" expanded="true" signature="3762:4048" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -87,8 +96,8 @@
       <file leaf-file-name="ListenConnectionThread.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/NetCode/ListenConnectionThread.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="391">
-              <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+            <state relative-caret-position="374">
+              <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
               <folding />
             </state>
           </provider>
@@ -107,13 +116,10 @@
       <file leaf-file-name="Miner.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Miner.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+            <state relative-caret-position="493">
+              <caret line="35" column="67" lean-forward="false" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
               <folding>
-                <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-                <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-                <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-                <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+                <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -122,9 +128,11 @@
       <file leaf-file-name="Transaction.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Transaction.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="341">
-              <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-              <folding />
+            <state relative-caret-position="477">
+              <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+              <folding>
+                <marker date="1520254134034" expanded="true" signature="1150:1166" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -425,15 +433,21 @@
       <option name="project" value="LOCAL" />
       <updated>1520241937954</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Merge branch 'master' of https://github.com/dagoldenburg/BigBoiBlockchain&#10;&#10;# Conflicts:&#10;#&#9;src/ClientGUI.java&#10;#&#9;src/Model/Transaction.java">
+      <created>1520254066476</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1520254066477</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27251000" />
+    <option name="totallyTimeSpent" value="27461000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -444,7 +458,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2931229" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.042789225" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.042789225" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -515,10 +529,7 @@
         <state relative-caret-position="307">
           <caret line="68" column="70" lean-forward="true" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
           <folding>
-            <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+            <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -556,6 +567,7 @@
           <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520254268104" expanded="true" signature="3762:4048" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -584,10 +596,7 @@
         <state relative-caret-position="1156">
           <caret line="68" column="70" lean-forward="true" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
           <folding>
-            <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+            <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -622,10 +631,7 @@
         <state relative-caret-position="375">
           <caret line="72" column="17" lean-forward="false" selection-start-line="72" selection-start-column="17" selection-end-line="72" selection-end-column="17" />
           <folding>
-            <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+            <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -666,6 +672,7 @@
           <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520254268104" expanded="true" signature="3762:4048" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -704,6 +711,7 @@
           <caret line="39" column="33" lean-forward="false" selection-start-line="39" selection-start-column="33" selection-end-line="39" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520254268104" expanded="true" signature="3762:4048" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -729,9 +737,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="408">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -739,7 +745,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="374">
           <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding />
+          <folding>
+            <marker date="1520254134034" expanded="true" signature="1150:1166" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -748,10 +756,7 @@
         <state relative-caret-position="1156">
           <caret line="68" column="70" lean-forward="true" selection-start-line="68" selection-start-column="70" selection-end-line="68" selection-end-column="71" />
           <folding>
-            <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+            <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -773,21 +778,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="391">
           <caret line="46" column="53" lean-forward="false" selection-start-line="46" selection-start-column="53" selection-end-line="46" selection-end-column="53" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Miner.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="33" column="67" lean-forward="false" selection-start-line="33" selection-start-column="67" selection-end-line="33" selection-end-column="67" />
+        <state relative-caret-position="493">
+          <caret line="35" column="67" lean-forward="false" selection-start-line="35" selection-start-column="67" selection-end-line="35" selection-end-column="67" />
           <folding>
-            <marker date="1520244928253" expanded="true" signature="2864:2893" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="2954:3119" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3166:3761" ph="{...}" />
-            <marker date="1520244928253" expanded="true" signature="3813:4079" ph="{...}" />
+            <marker date="1520254134022" expanded="true" signature="3959:4137" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -802,9 +802,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/BlockChain/Transaction.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="341">
-          <caret line="29" column="13" lean-forward="false" selection-start-line="29" selection-start-column="13" selection-end-line="29" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="477">
+          <caret line="35" column="13" lean-forward="false" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
+          <folding>
+            <marker date="1520254134034" expanded="true" signature="1150:1166" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -818,8 +820,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NetCode/ListenConnectionThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="16" lean-forward="false" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        <state relative-caret-position="374">
+          <caret line="26" column="16" lean-forward="false" selection-start-line="26" selection-start-column="16" selection-end-line="26" selection-end-column="16" />
           <folding />
         </state>
       </provider>
@@ -834,18 +836,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NetCode/Message.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="64" column="33" lean-forward="true" selection-start-line="64" selection-start-column="33" selection-end-line="64" selection-end-column="33" />
-          <folding />
+        <state relative-caret-position="283">
+          <caret line="47" column="13" lean-forward="true" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
+          <folding>
+            <marker date="1520254222514" expanded="true" signature="2372:2568" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Model/NetCode/PeerHandlerThread.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="66" column="30" lean-forward="true" selection-start-line="66" selection-start-column="30" selection-end-line="66" selection-end-column="30" />
+        <state relative-caret-position="223">
+          <caret line="64" column="30" lean-forward="true" selection-start-line="64" selection-start-column="30" selection-end-line="64" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
+            <marker date="1520254268104" expanded="true" signature="3762:4048" ph="{...}" />
           </folding>
         </state>
       </provider>

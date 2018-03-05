@@ -32,8 +32,7 @@ public class PeerConnectionThread implements Runnable {
                 System.out.println("Transaction failed");
             }else System.out.println("Transaction successful");
         } catch (NullPointerException|IOException e) {
-            System.out.println(e.getMessage());
-            System.out.println("Sending failed to "+node.getIp()+":"+node.getPort());
+            //System.out.println("Sending failed to "+node.getIp()+":"+node.getPort());
         }
         finally{
             try {

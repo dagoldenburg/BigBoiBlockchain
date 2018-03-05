@@ -1,7 +1,7 @@
 package Model.BlockChain;
 
 public class BlockChain {
-    private static String lastBlock = "";
+    private static String lastBlock = "nada";
 
     public static void addBlock(String b,String digest){
         //verify etc before adding
@@ -10,17 +10,16 @@ public class BlockChain {
             String[] strs = b.split("---");
             if(strs.length > 0){
                 if(strs[0].equals(lastBlock)){
-                    System.out.println("Pointed to previous block! (Good)");
-                    lastBlock = b;
-                    System.out.println("Added block to chain!");
+                    lastBlock = digest;
+                    System.out.println("ADDED NEW BLOCK TO CHAIN");
                 }else{
-                    System.out.println("Didnt point to previous block...");
+                    System.out.println("ERROR: DIDNT POINT TO PREVIOUS BLOCK IN CHAIN");
                 }
             }else{
-                System.out.println("An error occurred while adding block to chain");
+                System.out.println("UNEXPECTED ERROR");
             }
         }else{
-            System.out.println("Didnt add block to chain.");
+            System.out.println("DID NOT ADD TO CHAIN");
         }
 
     }
