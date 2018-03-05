@@ -6,6 +6,8 @@ import Model.Security.Keys;
 
 import java.util.ArrayList;
 import java.util.Base64;
+import java.util.Collections;
+import java.util.List;
 
 public class Transaction {
 
@@ -21,10 +23,14 @@ public class Transaction {
         this.signature = signature;
     }
 
-    private static ArrayList<Transaction> unusedTransactions = new ArrayList<>();
+    private static List<Transaction> unusedTransactions = Collections.synchronizedList(new ArrayList<>());
 
-    public static ArrayList<Transaction> getUnusedTransactions(){
+    public static List<Transaction> getUnusedTransactions(){
         return unusedTransactions;
+    }
+
+    public static void clearTransactions(){
+        unusedTransactions.clear();
     }
 
     @Override
@@ -36,13 +42,7 @@ public class Transaction {
 
     public static void addUnusedTransaction(Transaction t){
         if(t != null){
-            System.out.println("Adding transaction to arraylist!");
             unusedTransactions.add(t);
-            if(!unusedTransactions.isEmpty()){
-                System.out.println("IS NOT EMPTY");
-            }else{
-                System.out.println("ITS EMPTY");
-            }
         }
     }
 

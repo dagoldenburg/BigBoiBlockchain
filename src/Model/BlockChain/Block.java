@@ -29,10 +29,9 @@ public class Block {
     }
 
     public static boolean isValid(String block, String digest){
-        System.out.println("Trying to verify block");
+        System.out.println("VERIFYING..");
         try {
             MessageDigest mDigest = MessageDigest.getInstance("SHA1");
-
             // System.out.println("Length of message: " + message.length());
             byte[] result = mDigest.digest(block.getBytes());
             StringBuffer sb = new StringBuffer();
@@ -41,10 +40,10 @@ public class Block {
             }
             String s = sb.toString();
             if(s.equals(digest)){
-                System.out.println("Successfully verified!");
+                System.out.println("SUCCESS");
                 return true;
             }else{
-                System.out.println("Failed to verify.");
+                System.out.println("FAIL");
                 return false;
             }
         } catch (NoSuchAlgorithmException e) {

@@ -51,28 +51,26 @@ public class PeerHandlerThread implements Runnable {
     @Override
     public void run() {
         try {
-            System.out.println("Trying to read line");
             String message = fromClient.readLine();
-            System.out.println("Received line!");
             String[] strings = message.split(" ");
             if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
-                System.out.println("Received transaction");
+                System.out.println("RECEIVED NEW TRANSACTION");
                 KeyFactory kf = KeyFactory.getInstance("EC");
                 PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
                         Base64.getDecoder().decode(strings[3].getBytes())
                 ));
 
-                System.out.println(strings[4]);
+              //  System.out.println(strings[4]);
                 if(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
                         pub,hexStringToByteArray(strings[4]))){
-                    System.out.println("Signature was valid!");
+                    System.out.println("SIGNATURE WAS VALID");
                         toClient.writeByte(1);
                         Transaction.addUnusedTransaction(
                         new Transaction(strings[3],strings[2],Double.parseDouble(strings[1]),strings[4]));
                 }else
                     toClient.writeByte(0);
             }else if(message.startsWith("b ")){ //suggestion for new blockchain
-                System.out.println("Received new block");
+                System.out.println("RECEIVED NEW BLOCK");
                 if(message.length() > 2){
                     String s = message.substring(2,message.length()-1);
                     String[] strs = s.split("----");
