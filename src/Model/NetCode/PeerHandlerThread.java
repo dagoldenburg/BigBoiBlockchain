@@ -54,8 +54,19 @@ public class PeerHandlerThread implements Runnable {
             String message = fromClient.readLine();
             String[] strings = message.split(" ");
             if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
-                Transaction.addUnusedTransaction(
+                KeyFactory kf = KeyFactory.getInstance("EC");
+                PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
+                        Base64.getDecoder().decode(strings[3].getBytes())
+                ));
+
+                System.out.println(strings[4]);
+                if(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
+                        pub,hexStringToByteArray(strings[4]))){
+                        toClient.writeByte(1);
+                        Transaction.addUnusedTransaction(
                         new Transaction(strings[3],strings[2],Double.parseDouble(strings[1]),strings[4]));
+                }else
+                    toClient.writeByte(0);
             }else if(message.startsWith("b ")){ //suggestion for new blockchain
                 System.out.println("Received new block");
                 if(message.length() > 2){
@@ -73,14 +84,6 @@ public class PeerHandlerThread implements Runnable {
                 }
 
             }
-            KeyFactory kf = KeyFactory.getInstance("EC");
-            PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
-                    Base64.getDecoder().decode(strings[3].getBytes())
-            ));
-
-            System.out.println(strings[4]);
-            toClient.writeByte(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
-                    pub,hexStringToByteArray(strings[4])) ? 1 : 0);
         } catch (IOException | SignatureException | InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         } finally{
