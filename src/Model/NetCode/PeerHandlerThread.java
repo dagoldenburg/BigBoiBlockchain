@@ -61,16 +61,17 @@ public class PeerHandlerThread implements Runnable {
                     ));
                     if (Keys.validateSignature(strings[0] + " " + strings[1] + " " + strings[2],
                             pub, hexStringToByteArray(strings[4]))) {
-                        toClient.writeBytes("VALID");
+                        toClient.writeBytes("VALID\n");
                         System.out.println("transaction was valid");
                     Transaction.addUnusedTransaction(
                             new Transaction(strings[3], strings[2], Double.parseDouble(strings[1]), strings[4]));
                         Message.forwardMessage(message);
-                    } else
-                    System.out.println("transaction was invalid");
-                toClient.writeBytes("INVALID");
+                    } else {
+                        System.out.println("transaction was invalid");
+                        toClient.writeBytes("INVALID\n");
+                    }
                 }
-                toClient.writeBytes("VALID"); // om man redan tagit del av meddelandet
+                toClient.writeBytes("VALID\n"); // om man redan tagit del av meddelandet
             }else if(strings[0].equals("b")){ //suggestion for new blockchain
                 if(message.length() > 2){
                     String s = message.substring(2,message.length());
@@ -79,17 +80,17 @@ public class PeerHandlerThread implements Runnable {
                         String block = strs[0];
                         String digest = strs[1];
                         BlockChain.addBlock(block,digest);
-                        toClient.writeBytes("VALID");
+                        toClient.writeBytes("VALID\n");
                     }else{
                         System.out.println("Error when parsing string");
-                        toClient.writeBytes("INVALID");
+                        toClient.writeBytes("INVALID\n");
                     }
                 }else{
                     System.out.println("Format failure");
                 }
             }else if(strings[0].equals("c")){
                 Node.addNode(strings[1],strings[2]);
-                toClient.writeBytes("VALID");
+                toClient.writeBytes("VALID\n");
             }
         } catch (IOException | SignatureException | InvalidKeyException | NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();

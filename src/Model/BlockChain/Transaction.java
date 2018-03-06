@@ -27,6 +27,7 @@ public class Transaction {
     public static boolean duplicateTransaction(String signature){
         for(Transaction t : unusedTransactions){
             if(t.signature.equals(signature)){
+                System.out.println("duplicate trans");
                 return true;
             }
         }

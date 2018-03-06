@@ -75,6 +75,8 @@ public class Message {
                 try {
                     String newAmount = scanner.nextLine();
                     if (newAmount.length() == 0) {
+                        /** ADD TRANSACTION TO UNUSED TRANSACTIONS **/
+                        Transaction.addUnusedTransaction(new Transaction(me, receiver, Double.parseDouble(amount), s));
                         break;
                     }
                     amount += Double.parseDouble(newAmount);
@@ -83,8 +85,6 @@ public class Message {
                     done = false;
                 }
             }
-            /** ADD TRANSACTION TO UNUSED TRANSACTIONS **/
-            Transaction.addUnusedTransaction(new Transaction(me, receiver, Double.parseDouble(amount), s));
 
             return type + " " + amount + " " + receiver + " " + me + " " + s +"\n";
         } catch (Exception e) {
