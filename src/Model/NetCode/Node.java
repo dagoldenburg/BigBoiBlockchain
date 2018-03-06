@@ -1,5 +1,7 @@
 package Model.NetCode;
 
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.util.LinkedList;
 
 public class Node {
@@ -44,14 +46,21 @@ public class Node {
      * @return True if it can be connected to, false if not.
      * Adds a node to the nodes list.
      */
-    public static boolean addNode(String ip, String port){
+    public static boolean addNode(String ip, String port,String localinfo){
         //TODO: Connect to the node to see if it is available
-        //if(!canConnect) return false;
-        nodes.add(new Node(ip, port));
+        Node node = new Node(ip, port);
+        new Thread(new PeerConnectionThread("c "+localinfo+"\n", node)).start();
+        nodes.add(node);
         return true;
     }
 
-    public static boolean addNode(String ip,  int port){
+    public static boolean addNode(String ip, String port){
+        Node node = new Node(ip, port);
+        nodes.add(node);
+        return true;
+    }
+
+    public static boolean addNode(String ip,  int port,String localinfo){
         nodes.add(new Node(ip,port));
         return true;
     }

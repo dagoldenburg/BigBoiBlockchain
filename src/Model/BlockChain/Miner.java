@@ -37,7 +37,7 @@ public class Miner implements Runnable {
                     String digest = getDigest(message);
                     System.out.println("New digest: " + digest);
                     if (digest.length() > 1) {
-                        if (didStartWith(5, digest)) {
+                        if (didStartWith(3, digest)) {
                             System.out.println("SUCCESSFULLY MINED BLOCK");
                             System.out.println("TIME SPENT MINING: " + (System.currentTimeMillis() - startTime) + " MS.");
 

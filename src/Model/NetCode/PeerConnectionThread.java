@@ -1,11 +1,9 @@
 package Model.NetCode;
 
-import java.io.BufferedReader;
-import java.io.DataOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.util.Scanner;
 
 public class PeerConnectionThread implements Runnable {
 
@@ -30,22 +28,20 @@ public class PeerConnectionThread implements Runnable {
         }
         try{
             toPeer.writeBytes(message);
-            if(fromPeer.readLine().equals(0)){
+            if(fromPeer.readLine().equals("INVALID")){
                 System.out.println("Transaction failed");
-            }else System.out.println("Transaction successful");
+            }else System.out.println("transaction valid af");
         } catch (NullPointerException|IOException e) {
-            //System.out.println("Sending failed to "+node.getIp()+":"+node.getPort());
+            e.printStackTrace();
+            System.out.println("Sending failed to "+node.getIp()+":"+node.getPort());
         }
         finally{
             try {
                 messageSocket.close();
                 toPeer.close();
                 fromPeer.close();
-            } catch (NullPointerException|IOException e) {
-            }
+            } catch (NullPointerException|IOException e) { }
         }
-
-
     }
 
 }
