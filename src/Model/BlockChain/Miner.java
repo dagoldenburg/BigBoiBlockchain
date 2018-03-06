@@ -22,7 +22,7 @@ public class Miner implements Runnable {
                 ArrayList<Transaction> txs = new ArrayList<>(Transaction.getUnusedTransactions());
                 ArrayList<Transaction> txscopy = (ArrayList<Transaction>) txs.clone();
                 Transaction.clearTransactions();
-                
+
                 Random r = new Random();
                 int val = r.nextInt(100);
                 txscopy.add(new Transaction("Jakob", "Jakob", val, "Signatur"));

@@ -1,6 +1,7 @@
 package Model.BlockChain;
 
 public class BlockChain {
+
     private static String lastBlock = "nada";
 
     public static void addBlock(String b,String digest){
@@ -21,9 +22,7 @@ public class BlockChain {
         }else{
             System.out.println("DID NOT ADD TO CHAIN");
         }
-
     }
-
     public static String getLastBlock(){
         return lastBlock;
     }
