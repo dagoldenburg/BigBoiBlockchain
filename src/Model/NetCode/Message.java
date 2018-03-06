@@ -21,11 +21,27 @@ public class Message {
      */
     public static boolean sendMessage(char type, String amount, String receiver) {
         try {
-            String string = createTransactionMessage(type, amount, receiver);
+            String string = createTransactionMessage(type,amount,receiver);
             if (string != null) {
                 for (Node n : Node.getNodes()) {
                     new Thread(new PeerConnectionThread(string, n)).start();
 
+                }
+            } else {
+                System.out.println("FAILED TO CREATE NEW TRANSACTION");
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean forwardMessage(String message) {
+        try {
+            if (message != null) {
+                for (Node n : Node.getNodes()) {
+                    new Thread(new PeerConnectionThread(message+"\n", n)).start();
                 }
             } else {
                 System.out.println("FAILED TO CREATE NEW TRANSACTION");
@@ -59,6 +75,8 @@ public class Message {
                 try {
                     String newAmount = scanner.nextLine();
                     if (newAmount.length() == 0) {
+                        /** ADD TRANSACTION TO UNUSED TRANSACTIONS **/
+                        Transaction.addUnusedTransaction(new Transaction(me, receiver, Double.parseDouble(amount), s));
                         break;
                     }
                     amount += Double.parseDouble(newAmount);
@@ -67,8 +85,6 @@ public class Message {
                     done = false;
                 }
             }
-            /** ADD TRANSACTION TO UNUSED TRANSACTIONS **/
-            Transaction.addUnusedTransaction(new Transaction(me, receiver, Double.parseDouble(amount), s));
 
             return type + " " + amount + " " + receiver + " " + me + " " + s +"\n";
         } catch (Exception e) {
@@ -76,7 +92,6 @@ public class Message {
         }
         return null;
     }
-
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 

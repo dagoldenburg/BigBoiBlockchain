@@ -10,18 +10,20 @@ public class BlockChain {
         //verify etc before adding
         //TODO: implement branches etc
         if(Block.isValid(b,digest)){
-
             String[] strs = b.split("---");
             if(strs.length > 0){
                 if(lastBlock == null){
                     if(strs[0].equals("null")){
-                        //FIRST BLOCK (ADD IT)
                         addNewBlock(lastBlock,getTransactionsFromString(strs[1]),digest);
+                        Miner.sendBlockBroadcast(b,digest);
                     }
                 }else{
                     if(strs[0].equals(lastBlock.getDigest())){
                         //read transactions
                         addNewBlock(lastBlock,getTransactionsFromString(strs[1]),digest);
+                        Miner.sendBlockBroadcast(b,digest);
+                    }else if(digest.equals(lastBlock.getDigest())) {
+
                     }else{
                         System.out.println("ERROR: DIDNT POINT TO PREVIOUS BLOCK IN CHAIN");
                     }

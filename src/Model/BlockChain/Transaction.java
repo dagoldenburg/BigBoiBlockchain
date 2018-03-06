@@ -17,10 +17,21 @@ public class Transaction {
     private String signature;
 
     public Transaction(String from, String to, double amount, String signature) {
+
         this.from = from;
         this.to = to;
         this.amount = amount;
         this.signature = signature;
+    }
+
+    public static boolean duplicateTransaction(String signature){
+        for(Transaction t : unusedTransactions){
+            if(t.signature.equals(signature)){
+                System.out.println("duplicate trans");
+                return true;
+            }
+        }
+        return false;
     }
 
     private static List<Transaction> unusedTransactions = Collections.synchronizedList(new ArrayList<>());

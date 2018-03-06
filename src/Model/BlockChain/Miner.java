@@ -21,7 +21,6 @@ public class Miner implements Runnable {
                 System.out.println("STARTING MINING OF NEW BLOCK");
                 ArrayList<Transaction> txs = new ArrayList<>(Transaction.getUnusedTransactions());
                 ArrayList<Transaction> txscopy = (ArrayList<Transaction>) txs.clone();
-                Transaction.clearTransactions();
 
                 Random r = new Random();
                 int val = r.nextInt(1000);
@@ -45,6 +44,7 @@ public class Miner implements Runnable {
                             //Add to blockchain as last block
                             sendBlockBroadcast(message, digest);
                             BlockChain.addBlock(message, digest);
+                            Transaction.clearTransactions();
 
                             break;
                         }
@@ -53,10 +53,12 @@ public class Miner implements Runnable {
                     if(lastBlock == null){
                         if(BlockChain.getLastBlock() != null){
                             System.out.println("SOMEONE ELSE SOLVED IT BEFORE US, ABORTING MINING PROCESS");
+                            Transaction.clearTransactions();
                             break;
                         }
                     }else if(!lastBlock.getDigest().equals(BlockChain.getLastBlock().getDigest())){
                         System.out.println("SOMEONE ELSE SOLVED IT BEFORE US, ABORTING MINING PROCESS");
+                        Transaction.clearTransactions();
                         break;
                     }
                 }
@@ -73,7 +75,7 @@ public class Miner implements Runnable {
         }
     }
 
-    private void sendBlockBroadcast(String block, String digest) {
+    public static void sendBlockBroadcast(String block, String digest) {
         String message = "b " + block + "----" + digest + "\n";
         for (Node n : Node.getNodes()) {
             new Thread(new PeerConnectionThread(message, n)).start();
