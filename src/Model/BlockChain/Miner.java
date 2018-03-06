@@ -35,7 +35,7 @@ public class Miner implements Runnable {
                 while (true) {
                     String message = getMessage(nextBlock, counter);
                     String digest = getDigest(message);
-                    System.out.println("New digest: " + digest);
+                    //System.out.println("New digest: " + digest);
                     if (digest.length() > 1) {
                         if (didStartWith(3, digest)) {
                             System.out.println("SUCCESSFULLY MINED BLOCK");
@@ -68,7 +68,7 @@ public class Miner implements Runnable {
         }
     }
 
-    private void sendBlockBroadcast(String block, String digest) {
+    public static void sendBlockBroadcast(String block, String digest) {
         String message = "b " + block + "----" + digest + "-----\n";
         for (Node n : Node.getNodes()) {
             new Thread(new PeerConnectionThread(message, n)).start();

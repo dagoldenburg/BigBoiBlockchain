@@ -53,20 +53,24 @@ public class PeerHandlerThread implements Runnable {
         try {
             String message = fromClient.readLine();
             String[] strings = message.split(" ");
-            if(strings[0].equals("t")){ // transaction, TODO:hantera NumberFormatException från parseDouble
-                KeyFactory kf = KeyFactory.getInstance("EC");
-                PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
-                        Base64.getDecoder().decode(strings[3].getBytes())
-                ));
-                if(Keys.validateSignature(strings[0]+" "+strings[1]+" "+strings[2],
-                        pub,hexStringToByteArray(strings[4]))){
-                    toClient.writeBytes("VALID");
-                    System.out.println("transaction was valid");
-                        Transaction.addUnusedTransaction(
-                        new Transaction(strings[3],strings[2],Double.parseDouble(strings[1]),strings[4]));
-                }else
+            if(strings[0].equals("t")) { // transaction, TODO:hantera NumberFormatException från parseDouble
+                if (!Transaction.duplicateTransaction(strings[4])) {
+                    KeyFactory kf = KeyFactory.getInstance("EC");
+                    PublicKey pub = kf.generatePublic(new X509EncodedKeySpec(
+                            Base64.getDecoder().decode(strings[3].getBytes())
+                    ));
+                    if (Keys.validateSignature(strings[0] + " " + strings[1] + " " + strings[2],
+                            pub, hexStringToByteArray(strings[4]))) {
+                        toClient.writeBytes("VALID");
+                        System.out.println("transaction was valid");
+                    Transaction.addUnusedTransaction(
+                            new Transaction(strings[3], strings[2], Double.parseDouble(strings[1]), strings[4]));
+                        Message.forwardMessage(message);
+                    } else
                     System.out.println("transaction was invalid");
-                    toClient.writeBytes("INVALID");
+                toClient.writeBytes("INVALID");
+                }
+                toClient.writeBytes("VALID"); // om man redan tagit del av meddelandet
             }else if(strings[0].equals("b")){ //suggestion for new blockchain
                 if(message.length() > 2){
                     String s = message.substring(2,message.length()-1);

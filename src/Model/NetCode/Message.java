@@ -21,11 +21,27 @@ public class Message {
      */
     public static boolean sendMessage(char type, String amount, String receiver) {
         try {
-            String string = createTransactionMessage(type, amount, receiver);
+            String string = createTransactionMessage(type,amount,receiver);
             if (string != null) {
                 for (Node n : Node.getNodes()) {
                     new Thread(new PeerConnectionThread(string, n)).start();
 
+                }
+            } else {
+                System.out.println("FAILED TO CREATE NEW TRANSACTION");
+            }
+        } catch (NullPointerException e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }
+
+    public static boolean forwardMessage(String message) {
+        try {
+            if (message != null) {
+                for (Node n : Node.getNodes()) {
+                    new Thread(new PeerConnectionThread(message+"\n", n)).start();
                 }
             } else {
                 System.out.println("FAILED TO CREATE NEW TRANSACTION");
@@ -76,7 +92,6 @@ public class Message {
         }
         return null;
     }
-
 
     private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
 

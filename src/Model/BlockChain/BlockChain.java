@@ -13,7 +13,10 @@ public class BlockChain {
                 if(strs[0].equals(lastBlock)){
                     lastBlock = digest;
                     System.out.println("ADDED NEW BLOCK TO CHAIN");
-                }else{
+                    Miner.sendBlockBroadcast("b "+b,digest);
+                }else if(digest.equals(lastBlock)) {
+
+                }else {
                     System.out.println("ERROR: DIDNT POINT TO PREVIOUS BLOCK IN CHAIN");
                 }
             }else{

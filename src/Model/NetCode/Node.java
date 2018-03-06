@@ -47,7 +47,7 @@ public class Node {
      * Adds a node to the nodes list.
      */
     public static boolean addNode(String ip, String port,String localinfo){
-        //TODO: Connect to the node to see if it is available
+        //TODO: See that node isnt already in the nodelist
         Node node = new Node(ip, port);
         new Thread(new PeerConnectionThread("c "+localinfo+"\n", node)).start();
         nodes.add(node);
