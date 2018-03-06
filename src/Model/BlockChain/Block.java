@@ -6,12 +6,30 @@ import java.util.ArrayList;
 
 public class Block {
 
-    String previousBlockDigest;
-    ArrayList<Transaction> transactionPool;
+    private String digest;
+    private String previousBlockDigest;
+    private ArrayList<Transaction> transactionPool;
+    private Block previousBlock;
 
-    public Block(String previousBlock, ArrayList<Transaction> transactionPool) {
-        this.previousBlockDigest = previousBlock;
+    public Block(){
+        previousBlock = null;
+        transactionPool = null;
+        previousBlockDigest = null;
+        digest = null;
+    }
+
+    public Block(Block previousBlock, ArrayList<Transaction> transactionPool,String digest) {
+        this.previousBlock = previousBlock;
         this.transactionPool = transactionPool;
+        this.digest = digest;
+    }
+
+    public String getDigest(){
+        return digest;
+    }
+
+    public void setDigest(String digest){
+        this.digest = digest;
     }
 
     /**
@@ -26,6 +44,10 @@ public class Block {
     public void setPreviousBlock(String b){
         previousBlockDigest = b;
 
+    }
+
+    public Block getPreviousBlock(){
+        return previousBlock;
     }
 
     public static boolean isValid(String block, String digest){
@@ -52,8 +74,12 @@ public class Block {
         return false;
     }
 
-    public String getPreviousBlock(){
-        return previousBlockDigest;
+    public String getPreviousBlockDigest(){
+        if(previousBlock == null){
+            return "null";
+        }else{
+            return previousBlock.getDigest();
+        }
     }
 
     public ArrayList<Transaction> getTransactionPool(){

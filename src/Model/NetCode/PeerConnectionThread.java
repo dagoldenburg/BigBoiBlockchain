@@ -30,7 +30,7 @@ public class PeerConnectionThread implements Runnable {
             toPeer.writeBytes(message);
             if(fromPeer.readLine().equals("INVALID")){
                 System.out.println("Transaction failed");
-            }else System.out.println("transaction valid af");
+            }
         } catch (NullPointerException|IOException e) {
             e.printStackTrace();
             System.out.println("Sending failed to "+node.getIp()+":"+node.getPort());

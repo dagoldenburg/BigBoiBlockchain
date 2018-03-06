@@ -24,11 +24,11 @@ public class Miner implements Runnable {
                 Transaction.clearTransactions();
 
                 Random r = new Random();
-                int val = r.nextInt(100);
+                int val = r.nextInt(1000);
                 txscopy.add(new Transaction("Jakob", "Jakob", val, "Signatur"));
 
-                String lastBlock = BlockChain.getLastBlock();
-                Block nextBlock = new Block(lastBlock, txscopy);
+                Block lastBlock = BlockChain.getLastBlock();
+                Block nextBlock = new Block(lastBlock, txscopy,"");
 
                 ///TRY SOLVE DA BLOCK
                 int counter = 0;
@@ -37,7 +37,7 @@ public class Miner implements Runnable {
                     String digest = getDigest(message);
                     System.out.println("New digest: " + digest);
                     if (digest.length() > 1) {
-                        if (didStartWith(3, digest)) {
+                        if (didStartWith(4, digest)) {
                             System.out.println("SUCCESSFULLY MINED BLOCK");
                             System.out.println("TIME SPENT MINING: " + (System.currentTimeMillis() - startTime) + " MS.");
 
@@ -50,7 +50,12 @@ public class Miner implements Runnable {
                         }
                     }
                     counter++;
-                    if(lastBlock != BlockChain.getLastBlock()){
+                    if(lastBlock == null){
+                        if(BlockChain.getLastBlock() != null){
+                            System.out.println("SOMEONE ELSE SOLVED IT BEFORE US, ABORTING MINING PROCESS");
+                            break;
+                        }
+                    }else if(!lastBlock.getDigest().equals(BlockChain.getLastBlock().getDigest())){
                         System.out.println("SOMEONE ELSE SOLVED IT BEFORE US, ABORTING MINING PROCESS");
                         break;
                     }
@@ -69,7 +74,7 @@ public class Miner implements Runnable {
     }
 
     private void sendBlockBroadcast(String block, String digest) {
-        String message = "b " + block + "----" + digest + "-----\n";
+        String message = "b " + block + "----" + digest + "\n";
         for (Node n : Node.getNodes()) {
             new Thread(new PeerConnectionThread(message, n)).start();
         }
@@ -111,7 +116,7 @@ public class Miner implements Runnable {
         }
 
         String s = "";
-        s += b.getPreviousBlock() + "---" + transactions + "---" + counter;
+        s += b.getPreviousBlockDigest() + "---" + transactions + "---" + counter;
 
         return s;
     }
