@@ -1,4 +1,5 @@
 import Model.BlockChain.Block;
+import Model.BlockChain.BlockChain;
 import Model.BlockChain.Miner;
 import Model.NetCode.Message;
 import Model.NetCode.ListenConnectionThread;
@@ -52,6 +53,8 @@ public class ClientGUI {
                         Block.balance(strings[1]);
                         break;
                     case("show_blocks"):
+                        BlockChain.printBlockChain();
+                        break;
 
                     case ("add_node"):
                         Node.addNode(strings[1], strings[2], "127.0.0.1"+" "+argsv[0]);

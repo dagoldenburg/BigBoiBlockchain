@@ -73,7 +73,7 @@ public class PeerHandlerThread implements Runnable {
                 toClient.writeBytes("VALID"); // om man redan tagit del av meddelandet
             }else if(strings[0].equals("b")){ //suggestion for new blockchain
                 if(message.length() > 2){
-                    String s = message.substring(2,message.length()-1);
+                    String s = message.substring(2,message.length());
                     String[] strs = s.split("----");
                     if(strs.length > 1){
                         String block = strs[0];
